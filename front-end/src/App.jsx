@@ -1,10 +1,7 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import Articles from './pages/Articles'
-import ArticleDetail from './pages/ArticleDetail'
+import  ArticleDetail, {loader as articleDetailLoader} from './pages/ArticleDetail'
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import './App.css'
 import Layout from './pages/Layout'
@@ -16,7 +13,7 @@ element: <Layout/>,
 errorElement: <NotFound />,
 children: [{
   path: '/',
-  element: <HomePage />
+  element: <HomePage />,
 },
 {
   path: '/about',
@@ -25,10 +22,12 @@ children: [{
 {
   path: '/articles',
   element: <Articles />
+
 },
 {
   path: '/articles/:name',
-  element: <ArticleDetail />
+  element: <ArticleDetail />,
+  loader: articleDetailLoader
 }
 ]
 }];
