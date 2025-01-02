@@ -7,7 +7,7 @@ function Articles() {
     return (
         <>
         <h1>About Articles Page</h1>
-        {articlList.map(a =>  <Link to={a.name}>
+        {articlList.map(a =>  <Link to={a.name} key= {a.name}>
             <h2>{a.title}</h2>
             </Link> )}
       
